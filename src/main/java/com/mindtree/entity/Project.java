@@ -10,28 +10,35 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Project")
 public class Project {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "projectId")
-	private int projectId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "projectId")
+    private int projectId;
 
-	public int getProjectId() {
-		return projectId;
-	}
+    public int getProjectId() {
+        return projectId;
+    }
 
-	public void setProjectId(int projectId) {
-		this.projectId = projectId;
-	}
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
+    }
 
-	@Column(name = "projectName")
-	private String projectName;
+    @Column(name = "projectName")
+    private String projectName;
 
-	public String getProjectName() {
-		return projectName;
-	}
+    public String getProjectName() {
+        return projectName;
+    }
 
-	public void setProjectName(String projectName1) {
-		projectName = projectName1;
-	}
+    public void setProjectName(String projectName1) {
+        projectName = projectName1;
+    }
 
+    @Override
+    public String toString() {
+        return "Project{" +
+                "projectId=" + projectId +
+                ", projectName='" + projectName + '\'' +
+                '}';
+    }
 }
