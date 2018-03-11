@@ -35,10 +35,11 @@ EndDate: -->
 </c:forEach>
  
   	</table>	 --%>
+  	<form action="ViewTask" method="POST">
   	<table >
 			<tr>
 				<td style="background-color: white; font-size: 30px ; width : 200px">Select Project:</td>
-				<td> <select id="selectbox1" style="background-color: white; font-size: 30px ; width: 300px;  onchange="showDetails(this.value)">
+				<td> <select id="selectbox1" name="PRO" style="background-color: white; font-size: 30px ; width: 300px; ">
 						<option>All projects**</option>
 						<c:forEach var="list" items="${model}" varStatus="status">
 							<option id="projectId" value="${list.projectId}" >${list.projectName}</option>
@@ -47,28 +48,26 @@ EndDate: -->
 				</td>
 			</tr>
 		</table>
-		<div id="txtHint">Customer info will be listed here...</div>
+					<input type="submit" value="View Task Details">
 		
+		</form>
 		
-		<script>
-		function showDetails(str) {
-			<h1>hi1111111111111111111</h1>
-			  var xhttp;    
-			  if (str == "") {
-			    document.getElementById("txtHint").innerHTML = "";
-			    return;
-			  }
-			  xhttp = new XMLHttpRequest();
-			  xhttp.onreadystatechange = function() {
-			    if (this.readyState == 4 && this.status == 200) {
-			      document.getElementById("txtHint").innerHTML = this.responseText;
-			    }
-			  };
-			 xhttp.open("GET", "hi******", true);
-			  xhttp.send()
-			}
+     	   <c:forEach var="task" items="${model2}">
+         <h3>Task Description:</h3>  <td><i>${task.taskdescripion}</i></td>
+          <h3>Start Date : </h3><td><i> {task.startDate}</i></td>
+     	<h3>End Date :</h3><td><i> {task.endDate}</i></td>
+     	<h3>Employee Details</h3>
+     	<c:forEach var="employee" items="${model1 }">
+     	<h3>Employee Name :</h3><td><i> ${employee.name}</i></td>
+     	
+     	</c:forEach>
+            </c:forEach>
+        
+       <!--  <table width="400px" align="center" border="2" cellpadding="5" cellspacing="10" bgcolor="skyblue">
+        <tr><th>MID</th><th>Employee Name</th></tr>
+         <tr><th>{{x.employee.mid}}</th><th>{{x.employee.employee_name}}</th></tr>
+        </table>	 -->	
 		
-		</script>
 		
   	
   	

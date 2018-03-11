@@ -2,13 +2,14 @@ package com.mindtree.dao;
 
 import com.mindtree.entity.Employee;
 import com.mindtree.entity.Project;
-import com.mindtree.entity.Task1;
+import com.mindtree.entity.Task;
+import com.mindtree.exception.TaskManagementException;
 
 public interface SaveToDataBase {
 
-    public void addEmployee(Employee emp);
+    public void addEmployee(Employee emp) throws TaskManagementException;
 
-    public void addTask(Task1 task);
+    public void addTask(Task task) throws TaskManagementException;
 
-    public void addProject(Project project);
+    public int addProject(Project project)throws TaskManagementException;
 }

@@ -1,4 +1,4 @@
-package com.mindtree.daoimpl;
+package com.mindtree.daoImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mindtree.dao.GetFromDataBase;
 import com.mindtree.entity.Employee;
 import com.mindtree.entity.Project;
-import com.mindtree.entity.Task1;
+import com.mindtree.entity.Task;
 
 @Repository("viewDetails")
 @Transactional
@@ -43,7 +43,7 @@ public class ViewDetails implements GetFromDataBase {
 
     @Override
     public List<Project> getAllProjects() {
-        List<Project> projects = new ArrayList<>();
+       /* List<Project> projects = new ArrayList<>();
         Project p1 = new Project();
         p1.setProjectId(1);
         p1.setProjectName("HA");
@@ -53,14 +53,14 @@ public class ViewDetails implements GetFromDataBase {
 
         projects.add(p1);
         projects.add(p2);
-        return projects;
-        //return hibernateTemplate.loadAll(Project.class);
+        return projects;*/
+        return hibernateTemplate.loadAll(Project.class);
     }
 
     @Override
-    public List<Task1> getTasksByProjectId(Integer project) {
+    public List<Task> getTasksByProjectId(Integer project) {
 
-        return (List<Task1>) hibernateTemplate.get(Project.class, project);
+        return (List<Task>) hibernateTemplate.get(Project.class, project);
     }
 
 }

@@ -1,4 +1,4 @@
-package com.mindtree.daoimpl;
+package com.mindtree.daoImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateTemplate;
@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mindtree.dao.SaveToDataBase;
 import com.mindtree.entity.Employee;
 import com.mindtree.entity.Project;
-import com.mindtree.entity.Task1;
+import com.mindtree.entity.Task;
 
 @Repository("addDetails")
 @Transactional
@@ -35,13 +35,14 @@ public class AddDetails implements SaveToDataBase {
     }
 
     @Override
-    public void addTask(Task1 task) {
+    public void addTask(Task task) {
         hibernateTemplate.save(task);
     }
 
     @Override
-    public void addProject(Project project) {
+    public int addProject(Project project) {
         hibernateTemplate.save(project);
+		return 0;
     }
 
 }
